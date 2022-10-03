@@ -1,5 +1,6 @@
 import styled, {keyframes, css} from "styled-components";
 
+
 export const Container = styled.div`
     max-width: 700px;
     background-color: #fff;
@@ -92,3 +93,39 @@ export const SubmitButton = styled.button.attrs(props => ({
         margin: 0;
     }
 `;
+
+export const List = styled.ul`
+    list-style: none;
+    margin-top: 20px;
+
+    li{
+        padding: 15px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        & + li{
+            border-top: 1px solid #ccc;
+        }
+
+        a{
+            color: #0D2636;
+            text-decoration: none;
+        }
+    }
+`;
+
+export const DeleteButton = styled.button.attrs({
+    type: 'button'
+})`
+    border: 0;
+    background: transparent;
+    color: #0D2636;
+    margin-right: 10px;
+    outline: 0;
+    border-radius: 4px
+
+`;
+
+
