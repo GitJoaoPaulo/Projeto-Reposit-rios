@@ -1,131 +1,118 @@
-import styled, {keyframes, css} from "styled-components";
-
+import styled, {keyframes, css} from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 700px;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 30px;
-    margin: 80px auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  max-width: 700px;
+  background: #FFF;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0, 0.2);
+  padding: 30px;
+  margin: 80px auto;
 
-    h1{
-        font-size: 20px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        svg{
-            margin-right: 10px;
-        }
+  h1{
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+    flex-direction:row;
+    
+    svg{
+      margin-right: 10px;
     }
 
-    @media screen and (max-width: 720px){
-        width: 90%;
-    }
+  }
+
+
 `;
 
 export const Form = styled.form`
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
+  margin-top: 30px;
+  display:flex;
+  flex-direction: row;
 
-    input{
-        flex: 1;
-        border: 1px solid #DDD;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 17px;
-    }
+  input{
+    flex:1;
+    border: 1px solid ${props => (props.error ? '#FF0000' : '#eee')};
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 17px;
+  }
 
-    @media screen and (max-width: 390px){
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-         
-        input{
-            width: 90%;
-            margin-bottom: 10px;
-        }
-
-    }
 `;
 
+//Criando animcação do botao
 const animate = keyframes`
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-`
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+`;
 
 export const SubmitButton = styled.button.attrs(props => ({
-    type: 'submit',
-    disabled: props.loading,
+  type: 'submit',
+  disabled: props.loading,
 }))`
-    background-color: #0D2636;
-    border: 0;
-    margin-left: 10px;
-    padding: 0  15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background:#0D2636;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &[disabled]{
-        cursor: not-allowed;
-        opacity: 0.5;
-    }
 
-    ${props => props.loading &&
-        css`
-            svg{
-                animation: ${animate} 2s linear infinite;
-            }
-        `
-    }
+  &[disabled]{
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
-    @media screen and (max-width: 390px){
-        width: 90%;
-        height: 30px;
-        margin: 0;
-    }
+
+  ${props => props.loading &&
+    css`
+      svg{
+        animation: ${animate} 2s linear infinite;
+      }
+    `
+  }
+
+
 `;
 
 export const List = styled.ul`
-    list-style: none;
-    margin-top: 20px;
+  list-style:none;
+  margin-top: 20px;
 
-    li{
-        padding: 15px 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+  li{
+    padding: 15px 0;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
 
-        & + li{
-            border-top: 1px solid #ccc;
-        }
-
-        a{
-            color: #0D2636;
-            text-decoration: none;
-        }
+    & + li{
+      border-top: 1px solid #eee;
     }
+
+    a{
+      color:#0D2636;
+      text-decoration: none;
+    }
+
+
+  }
+
 `;
+
 
 export const DeleteButton = styled.button.attrs({
-    type: 'button'
+  type:'button'
 })`
-    border: 0;
-    background: transparent;
-    color: #0D2636;
-    margin-right: 10px;
-    outline: 0;
-    border-radius: 4px
-
+  background: transparent;
+  color:#0D2636;
+  border:0;
+  padding: 8px 7px;
+  outline:0;
+  border-radius: 4px;
 `;
-
-
